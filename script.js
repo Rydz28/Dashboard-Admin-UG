@@ -1,4 +1,3 @@
-// Sidebar Toggle Functionality
 const sidebar = document.getElementById('sidebar');
 const mainContent = document.getElementById('mainContent');
 let sidebarOpen = true;
@@ -16,7 +15,6 @@ function toggleSidebar() {
     }
 }
 
-// Handle resize events
 window.addEventListener('resize', () => {
     const isMobile = window.innerWidth < 768;
     if (!isMobile && !sidebarOpen) {
@@ -24,7 +22,6 @@ window.addEventListener('resize', () => {
     }
 });
 
-// Active Menu Handling
 function setActiveMenu() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('#sidebar nav a').forEach(link => {
@@ -32,7 +29,6 @@ function setActiveMenu() {
     });
 }
 
-// Initialize Chart
 document.addEventListener('DOMContentLoaded', function() {
     setActiveMenu();
     
@@ -69,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Page Transitions
 document.querySelectorAll('#sidebar nav a').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
@@ -80,7 +75,6 @@ document.querySelectorAll('#sidebar nav a').forEach(link => {
     });
 });
 
-// Initial page load animation
 window.onload = () => {
     document.body.style.transition = 'opacity 0.3s ease';
     document.body.style.opacity = '1';
