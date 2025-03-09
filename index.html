@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard Admin Universitas Gunadarma">
+    <title>Dashboard Admin Universitas Gunadarma</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed left-0 top-0 h-screen w-64 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white transition-transform duration-300 z-30 shadow-xl border-r border-blue-700/50">
+        <div class="p-4">
+            <!-- Logo & Header -->
+            <div class="flex items-center space-x-3 mb-8 bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+                <img src="https://static.vecteezy.com/system/resources/previews/011/311/332/original/ug-logo-ug-design-blue-and-red-ug-letter-ug-letter-logo-design-initial-letter-ug-linked-circle-uppercase-monogram-logo-vector.jpg" alt="Logo" class="w-10 h-10 rounded-lg shadow-lg object-cover">
+                <div>
+                    <h2 class="text-xl font-bold">UG Admin</h2>
+                    <span class="text-xs text-blue-200">Dashboard Panel</span>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="space-y-1">
+                <div class="pb-2 mb-4 border-b border-blue-700/50">
+                    <p class="text-xs font-semibold text-blue-300 uppercase tracking-wider mb-2 px-3">Menu Utama</p>
+                    <ul class="space-y-1">
+                        <li>
+                            <a href="index.html" class="flex items-center px-3 py-2 rounded-lg bg-blue-700/50 text-white hover:bg-blue-600 transition-all group relative">
+                                <i class="fas fa-home w-5 h-5 mr-3 text-white transition-transform group-hover:scale-110"></i>
+                                <span class="font-medium">Dashboard</span>
+                                <span class="absolute left-0 top-1/2 w-1 h-8 bg-blue-400 rounded-r transform -translate-y-1/2 transition-opacity opacity-100"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mahasiswa.html" class="flex items-center px-3 py-2 rounded-lg hover:bg-blue-700/50 transition-all group relative">
+                                <i class="fas fa-users w-5 h-5 mr-3 text-blue-200 group-hover:text-white transition-all"></i>
+                                <span class="font-medium">Mahasiswa</span>
+                                <span class="absolute left-0 top-1/2 w-1 h-8 bg-blue-400 rounded-r transform -translate-y-1/2 transition-opacity opacity-0 group-hover:opacity-50"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="matakuliah.html" class="flex items-center px-3 py-2 rounded-lg hover:bg-blue-700/50 transition-all group relative">
+                                <i class="fas fa-book w-5 h-5 mr-3 text-blue-200 group-hover:text-white transition-all"></i>
+                                <span class="font-medium">Mata Kuliah</span>
+                                <span class="absolute left-0 top-1/2 w-1 h-8 bg-blue-400 rounded-r transform -translate-y-1/2 transition-opacity opacity-0 group-hover:opacity-50"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="jadwal.html" class="flex items-center px-3 py-2 rounded-lg hover:bg-blue-700/50 transition-all group relative">
+                                <i class="fas fa-calendar w-5 h-5 mr-3 text-blue-200 group-hover:text-white transition-all"></i>
+                                <span class="font-medium">Jadwal</span>
+                                <span class="absolute left-0 top-1/2 w-1 h-8 bg-blue-400 rounded-r transform -translate-y-1/2 transition-opacity opacity-0 group-hover:opacity-50"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Additional Section -->
+                <div class="pb-2">
+                    <p class="text-xs font-semibold text-blue-300 uppercase tracking-wider mb-2 px-3">Pengaturan</p>
+                    <ul class="space-y-1">
+                        <li>
+                            <a href="pengaturan.html" class="flex items-center px-3 py-2 rounded-lg hover:bg-blue-700/50 transition-all group relative">
+                                <i class="fas fa-cog w-5 h-5 mr-3 text-blue-200 group-hover:text-white transition-all group-hover:rotate-45"></i>
+                                <span class="font-medium">Pengaturan</span>
+                                <span class="absolute left-0 top-1/2 w-1 h-8 bg-blue-400 rounded-r transform -translate-y-1/2 transition-opacity opacity-0 group-hover:opacity-50"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- User Profile Section -->
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+            <div class="flex items-center space-x-3 bg-blue-800/50 p-3 rounded-lg backdrop-blur-sm">
+                <img src="https://static.vecteezy.com/system/resources/previews/011/311/332/original/ug-logo-ug-design-blue-and-red-ug-letter-ug-letter-logo-design-initial-letter-ug-linked-circle-uppercase-monogram-logo-vector.jpg" alt="Profile" class="rounded-full ring-2 ring-blue-400 w-12 h-12 object-cover">
+                <div class="flex-1">
+                    <h4 class="text-sm font-medium">Admin User</h4>
+                    <p class="text-xs text-blue-200">admin@example.com</p>
+                </div>
+                <button class="text-blue-200 hover:text-white transition-colors">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="ml-64 transition-all duration-300 min-h-screen">
+        <!-- Navbar -->
+        <nav class="bg-white shadow-sm sticky top-0 z-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-end items-center h-16">
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <button class="p-2 rounded-lg text-gray-600 hover:bg-gray-100">
+                                <i class="fas fa-bell text-xl"></i>
+                                <span class="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
+                            </button>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <img src="https://static.vecteezy.com/system/resources/previews/011/311/332/original/ug-logo-ug-design-blue-and-red-ug-letter-ug-letter-logo-design-initial-letter-ug-linked-circle-uppercase-monogram-logo-vector.jpg" alt="Profile" class="w-8 h-8 rounded-full object-cover">
+                            <span class="text-sm font-medium text-gray-700">Admin</span>
+                            <i class="fas fa-chevron-down text-xs text-gray-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Dashboard Content -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <header class="flex justify-between items-center mb-8">
+                <h1 class="text-3xl font-bold text-blue-700">Dashboard Admin</h1>
+                <div class="flex items-center space-x-4">
+                    <span class="text-gray-600">Admin 22</span>
+                    <img src="https://static.vecteezy.com/system/resources/previews/011/311/332/original/ug-logo-ug-design-blue-and-red-ug-letter-ug-letter-logo-design-initial-letter-ug-linked-circle-uppercase-monogram-logo-vector.jpg" alt="Profile" class="rounded-full w-8 h-8 rounded-full object-cover">
+                </div>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Kartu Statistik -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold mb-4">Total Mahasiswa</h2>
+                    <div class="text-4xl font-bold text-blue-600">5,432</div>
+                    <div class="text-green-500 flex items-center">
+                        ↑ 12% dari bulan lalu
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold mb-4">Pendaftaran Baru</h2>
+                    <div class="text-4xl font-bold text-purple-600">423</div>
+                    <div class="text-red-500 flex items-center">
+                        ↓ 5% dari minggu lalu
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold mb-4">Mata Kuliah Aktif</h2>
+                    <div class="text-4xl font-bold text-green-600">87</div>
+                    <div class="text-green-500 flex items-center">
+                        ↑ 3 mata kuliah baru
+                    </div>
+                </div>
+
+                <!-- Grafik Utama -->
+                <div class="col-span-full bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold mb-4">Statistik Mahasiswa per Semester</h2>
+                    <div class="relative" style="height: 400px;">
+                        <canvas id="studentChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabel Ringkasan -->
+            <div class="mt-8 bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Ringkasan Terbaru</h2>
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="p-3">Aktivitas</th>
+                            <th class="p-3">Jumlah</th>
+                            <th class="p-3">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b">
+                            <td class="p-3">Pendaftaran Online</td>
+                            <td class="p-3">423</td>
+                            <td class="p-3"><span class="bg-green-200 text-green-800 px-2 py-1 rounded">Aktif</span></td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-3">Ujian Online</td>
+                            <td class="p-3">256</td>
+                            <td class="p-3"><span class="bg-blue-200 text-blue-800 px-2 py-1 rounded">Berlangsung</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-3">Pembayaran SPP</td>
+                            <td class="p-3">342</td>
+                            <td class="p-3"><span class="bg-yellow-200 text-yellow-800 px-2 py-1 rounded">Proses</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+/* Table Styles */
+.student-table th {
+    position: sticky;
+    top: 0;
+    background: #f9fafb;
+    z-index: 10;
+}
+
+/* Modal Animation */
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#addStudentModal .bg-white {
+    animation: modalFade 0.3s ease-out;
+}
+
+/* Course Card Styles */
+.course-card {
+    transition: transform 0.2s;
+}
+
+.course-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Focus Styles */
+input:focus, select:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .course-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+/* Style Khusus untuk Jadwal */
+.schedule-table {
+    min-width: 800px;
+}
+
+@media (max-width: 640px) {
+    .schedule-filters {
+        grid-template-columns: 1fr;
+    }
+}
+
+.btn-secondary {
+    @apply px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-300;
+}
+
+.schedule-item {
+    @apply relative p-4 hover:bg-gray-50 transition-colors;
+}
+
+.schedule-time {
+    @apply text-sm font-medium text-gray-600;
+}
+
+.schedule-card {
+    @apply bg-blue-50 border-l-4 border-blue-500 p-3 rounded shadow-sm hover:shadow-md transition-shadow;
+}
+
+/* Animasi untuk jadwal */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.schedule-item {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Style Khusus untuk Pengaturan */
+.settings-tab.active {
+    color: #2563eb;
+    border-color: #2563eb;
+}
+
+/* Animasi untuk checkbox */
+input[type="checkbox"] {
+    transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+/* Responsif untuk tab navigasi */
+@media (max-width: 640px) {
+    .settings-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Style untuk transisi halaman */
+body {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Style untuk link aktif di sidebar */
+#sidebar nav a.active {
+    background-color: #1d4ed8;
+}
+
+/* Animasi hover untuk semua link */
+a {
+    transition: all 0.3s ease;
+}
+
+/* Media query untuk responsivitas yang lebih baik */
+@media (max-width: 768px) {
+    #mainContent {
+        padding-top: 4rem;
+    }
+    
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Optimasi untuk perangkat dengan layar kecil */
+@media (max-width: 640px) {
+    #sidebar {
+        width: 100%;
+        transform: translateX(-100%);
+    }
+
+    #mainContent {
+        margin-left: 0 !important;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tambahan style untuk konsistensi desain */
+.dashboard-card {
+    @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200;
+}
+
+.page-header {
+    @apply flex flex-col md:flex-row justify-between items-center mb-6 gap-4;
+}
+
+.page-title {
+    @apply text-2xl font-bold text-gray-800;
+}
+
+.btn-primary {
+    @apply bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+.table-container {
+    @apply bg-white rounded-lg shadow-sm overflow-hidden;
+}
+
+/* Responsif table wrapper */
+.table-responsive {
+    @apply overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100;
+}
+
+/* Custom scrollbar untuk tabel */
+.scrollbar-thin::-webkit-scrollbar {
+    height: 6px;
+}
+
+/* Modern Sidebar Styles */
+.sidebar-link {
+    @apply flex items-center px-3 py-2 rounded-lg transition-all;
+}
+
+.sidebar-link.active {
+    @apply bg-blue-700/50 text-white;
+}
+
+.sidebar-link:not(.active):hover {
+    @apply bg-blue-700/30;
+}
+
+.sidebar-icon {
+    @apply w-5 h-5 mr-3 transition-colors;
+}
+
+.sidebar-text {
+    @apply text-sm font-medium;
+}
+
+/* Glassmorphism Effects */
+.glass-effect {
+    @apply bg-white/10 backdrop-blur-sm;
+}
+
+/* Active Menu Indicator */
+.sidebar-link.active::before {
+    content: '';
+    @apply absolute left-0 top-1/2 w-1 h-8 bg-blue-400 rounded-r transform -translate-y-1/2;
+}
+
+/* Hover Effects */
+.sidebar-link:hover .sidebar-icon {
+    @apply text-white transform scale-110;
+}
